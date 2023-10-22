@@ -3,6 +3,7 @@ package controllers
 import (
 	"api/models"
 	"github.com/gin-gonic/gin"
+	"log"
 	"net/http"
 )
 
@@ -11,6 +12,7 @@ func GetAllVehicles(c *gin.Context) {
 	var vehicles []models.Vehicle
 
 	db.Find(&vehicles)
+	log.Println("Buscando todos os veiculos ")
 
 	c.JSON(http.StatusOK, gin.H{"data": vehicles})
 }
